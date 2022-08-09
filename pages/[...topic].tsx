@@ -5,17 +5,17 @@ import { Flex, Heading } from "@chakra-ui/react";
 
 import Header from "../components/Header";
 import Layout from "../components/Layout";
-import { TPageProps } from "../util/types";
+import { TDynamicPageProps } from "../util/types";
 import { filterValidNews } from "../util/filterValidNews";
 
-export default function RandomTopic(props: TPageProps) {
-  const { news } = props;
+export default function RandomTopic(props: TDynamicPageProps) {
+  const { news, topic } = props;
   const detailedNews = filterValidNews(news);
   if (detailedNews.length) return <Layout news={detailedNews} />;
   else
     return (
       <>
-        <Header />
+        <Header mainHeading={`Found nothing related to ${topic}`} />
         <Flex
           w="100%"
           h="60vh"
@@ -23,7 +23,6 @@ export default function RandomTopic(props: TPageProps) {
           alignItems="center"
           direction="column"
         >
-          <Heading>Nothing is here!!</Heading>
           <Link href="/">Take me on homepage</Link>
         </Flex>
       </>
@@ -42,5 +41,5 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     `${process.env.NEXT_PUBLIC_BASE_URL}/everything?q=${params.topic}&apiKey=${process.env.API_KEY}`
   );
   const data = await response.json();
-  return { props: { news: data.articles } };
+  return { props: { news: data.articles, topic: params.topic } };
 };

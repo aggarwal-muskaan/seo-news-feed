@@ -1,5 +1,14 @@
+export type THeaderProps = {
+  mainHeading?: string;
+};
+
 export type TPageProps = {
   news: TResponseData[];
+};
+
+export type TDynamicPageProps = {
+  news: TResponseData[];
+  topic: string;
 };
 
 export type TLayoutProps = {

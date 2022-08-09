@@ -1,8 +1,11 @@
 import Link from "next/link";
 import Marquee from "react-fast-marquee";
-import { Box, Flex, Heading } from "@chakra-ui/react";
+import { Box, Center, Flex, Heading } from "@chakra-ui/react";
+import { THeaderProps } from "../util/types";
 
-function Header() {
+function Header(props: THeaderProps) {
+  const { mainHeading } = props;
+
   const movingLinks = [
     { text: "Bitcoin", page: "/bitcoin" },
     { text: "Weather", page: "/weather" },
@@ -25,18 +28,31 @@ function Header() {
   return (
     <Box>
       <Box>
-        <Heading>NEWS</Heading>
+        <Heading
+          py="1rem"
+          px={{ base: ".7rem", md: "1.3rem", lg: "2rem" }}
+          color="blue.300"
+        >
+          NEWS
+        </Heading>
       </Box>
-      <Marquee direction="right" pauseOnHover>
-        {movingLinks.map((item, index) => (
-          <Flex key={index}>
-            <Link href={item.page} passHref>
-              <a>{item.text}</a>
-            </Link>
-            <section>&nbsp;&nbsp;|&nbsp;&nbsp; </section>
-          </Flex>
-        ))}
-      </Marquee>
+      <Box pb="2rem">
+        <Marquee direction="right" pauseOnHover>
+          {movingLinks.map((item, index) => (
+            <Flex key={index} color="orange.400">
+              <Link href={item.page}>{item.text}</Link>
+              <Box color="gray.600">&nbsp;&nbsp;|&nbsp;&nbsp; </Box>
+            </Flex>
+          ))}
+        </Marquee>
+      </Box>
+      <Box>
+        <Center>
+          <Heading size="md" color="green.400">
+            {mainHeading}
+          </Heading>
+        </Center>
+      </Box>
     </Box>
   );
 }
