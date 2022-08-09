@@ -48,7 +48,7 @@ function Header(props: THeaderProps) {
       </Box>
       <Box>
         <Center>
-          <Heading size="md" color="green.400">
+          <Heading size="md" color="red.400">
             {mainHeading}
           </Heading>
         </Center>

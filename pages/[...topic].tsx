@@ -22,6 +22,7 @@ export default function RandomTopic(props: TDynamicPageProps) {
           justifyContent="center"
           alignItems="center"
           direction="column"
+          color="green"
         >
           <Link href="/">Take me on homepage</Link>
         </Flex>
