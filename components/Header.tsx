@@ -33,7 +33,7 @@ function Header(props: THeaderProps) {
           px={{ base: ".7rem", md: "1.3rem", lg: "2rem" }}
           color="blue.300"
         >
-          NEWS
+          <Link href={"/"}>NEWS</Link>
         </Heading>
       </Box>
       <Box pb="2rem">
