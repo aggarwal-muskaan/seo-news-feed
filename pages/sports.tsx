@@ -12,7 +12,7 @@ export default Sports;
 
 export async function getStaticProps() {
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_BASE_URL}/top-headlines?category=sports&apiKey=${process.env.API_KEY}`
+    `${process.env.NEXT_PUBLIC_BASE_URL}/top-headlines?category=sports&country=in&apiKey=${process.env.API_KEY}`
   );
   const data = await response.json();
   return { props: { news: data.articles } };

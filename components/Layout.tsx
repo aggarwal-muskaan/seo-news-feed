@@ -32,7 +32,7 @@ function Layout(props: TLayoutProps) {
       <Box>
         <Heading>NEWS</Heading>
       </Box>
-      <Marquee>
+      <Marquee direction="right" pauseOnHover>
         {movingLinks.map((item, index) => (
           <Flex key={index}>
             <Link href={item.page} passHref>
@@ -54,7 +54,7 @@ function Layout(props: TLayoutProps) {
             <Image alt="news-image" src={item.urlToImage} w="100%" h="200px" />
             <Text>{item.content}</Text>
             <Text color="gray.500" fontSize="xs">
-              {item.source.name} &nbsp;&bull; &nbsp;
+              {item.author} &nbsp;&bull; &nbsp;
               {item.publishedAt
                 ? formatDate(new Date(item.publishedAt))
                 : formatDate(new Date())}
