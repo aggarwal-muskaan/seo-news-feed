@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import Marquee from "react-fast-marquee";
 import { Box, Center, Flex, Heading } from "@chakra-ui/react";
@@ -5,6 +6,14 @@ import { THeaderProps } from "../util/types";
 
 function Header(props: THeaderProps) {
   const { mainHeading } = props;
+  const [screenWidth, setScreenWidth] = useState(375);
+
+  useEffect(() => {
+    const deviceScreenWidth = window.innerWidth;
+    setScreenWidth(deviceScreenWidth);
+    console.log("screenWidth", screenWidth);
+    /* eslint-disable-next-line */
+  }, []);
 
   const movingLinks = [
     { text: "Bitcoin", page: "/bitcoin" },
@@ -37,7 +46,11 @@ function Header(props: THeaderProps) {
         </Heading>
       </Box>
       <Box pb="2rem">
-        <Marquee direction="right" pauseOnHover>
+        <Marquee
+          direction="right"
+          pauseOnHover
+          gradient={screenWidth >= 900 ? true : false}
+        >
           {movingLinks.map((item, index) => (
             <Flex key={index} color="orange.400">
               <Link href={item.page}>{item.text}</Link>
