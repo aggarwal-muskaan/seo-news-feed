@@ -1,0 +1,22 @@
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Unnecessarybot may not crawl the site, all other bots may
+User-agent: Unnecessarybot
+Disallow: /
+
+# Disallow crawling of files of a specific file type
+User-agent: Googlebot
+Disallow: /*.png$
+Disallow: /*.jpg$
+
+# Allow googlebot-news to crawl the whole site
+User-agent: Googlebot-news
+Allow: /
+
+# Disallow all .xls files
+User-agent: Googlebot
+Disallow: /*.xls$
+
+Sitemap: https://latest-news.vercel.app/sitemap.xml
