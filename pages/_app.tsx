@@ -7,6 +7,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <>
       <Head>
         <meta name="robots" content="all" />
+        <link rel="shortcut icon" href="/favicon.jpeg" />
       </Head>
       <ChakraProvider resetCSS>
         <Component {...pageProps} />
