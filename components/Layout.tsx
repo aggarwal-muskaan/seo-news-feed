@@ -1,6 +1,7 @@
 import Head from "next/head";
 import { Box, Flex, Grid, Heading, Image, Text } from "@chakra-ui/react";
 
+import { descendingComparator } from "../util/sortArray";
 import { formatDate } from "../util/formatter";
 import { TLayoutProps } from "../util/types";
 import Header from "./Header";
@@ -8,6 +9,9 @@ import Link from "next/link";
 
 function Layout(props: TLayoutProps) {
   const { news } = props;
+  const sortedNews = news.sort((a, b) =>
+    descendingComparator(a, b, "publishedAt")
+  );
 
   return (
     <>
