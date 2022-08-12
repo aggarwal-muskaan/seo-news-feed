@@ -1,11 +1,23 @@
-import React from "react";
+import Head from "next/head";
 import Layout from "../components/Layout";
 import { filterValidNews } from "../util/filterValidNews";
 import { TPageProps } from "../util/types";
 
 function Business(props: TPageProps) {
   const detailedNews = filterValidNews(props.news);
-  return <Layout news={detailedNews} />;
+  return (
+    <>
+      <Head>
+        <title>Top Business Headlines - India</title>
+        <meta
+          name="description"
+          content="Get top business headlines around India - LatestNews"
+          key="desc"
+        />
+      </Head>
+      <Layout news={detailedNews} />
+    </>
+  );
 }
 
 export default Business;

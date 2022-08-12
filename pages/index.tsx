@@ -5,7 +5,19 @@ import { TPageProps } from "../util/types";
 
 export default function Home(props: TPageProps) {
   const detailedNews = filterValidNews(props.news);
-  return <Layout news={detailedNews} />;
+  return (
+    <>
+      <Head>
+        <title>Top Headlines - India</title>
+        <meta
+          name="description"
+          content="Get current top headlines in India - LatestNews"
+          key="desc"
+        />
+      </Head>
+      <Layout news={detailedNews} />
+    </>
+  );
 }
 
 export async function getStaticProps() {

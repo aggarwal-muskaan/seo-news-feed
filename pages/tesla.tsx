@@ -5,7 +5,19 @@ import { TPageProps } from "../util/types";
 
 function Tesla(props: TPageProps) {
   const detailedNews = filterValidNews(props.news);
-  return <Layout news={detailedNews} />;
+  return (
+    <>
+      <Head>
+        <title>Everything about Tesla</title>
+        <meta
+          name="description"
+          content="Know latest insights of Tesla - LatestNews"
+          key="desc"
+        />
+      </Head>
+      <Layout news={detailedNews} />
+    </>
+  );
 }
 
 export default Tesla;

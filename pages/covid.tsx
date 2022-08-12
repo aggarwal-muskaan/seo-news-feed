@@ -1,11 +1,23 @@
-import React from "react";
+import Head from "next/head";
 import Layout from "../components/Layout";
 import { filterValidNews } from "../util/filterValidNews";
 import { TPageProps } from "../util/types";
 
 function Covid(props: TPageProps) {
   const detailedNews = filterValidNews(props.news);
-  return <Layout news={detailedNews} />;
+  return (
+    <>
+      <Head>
+        <title>COVID News</title>
+        <meta
+          name="description"
+          content="Know Covid cases and information from the world - LatestNews"
+          key="desc"
+        />
+      </Head>
+      <Layout news={detailedNews} />
+    </>
+  );
 }
 
 export default Covid;

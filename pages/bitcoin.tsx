@@ -5,9 +5,20 @@ import { TPageProps } from "../util/types";
 
 function Bitcoin(props: TPageProps) {
   const detailedNews = filterValidNews(props.news);
-  return <Layout news={detailedNews} />;
+  return (
+    <>
+      <Head>
+        <title>Everything about Bitcoin</title>
+        <meta
+          name="description"
+          content="Stay updated with latest news on Bitcoin"
+          key="desc"
+        />
+      </Head>
+      <Layout news={detailedNews} />
+    </>
+  );
 }
-
 export default Bitcoin;
 
 export async function getStaticProps() {

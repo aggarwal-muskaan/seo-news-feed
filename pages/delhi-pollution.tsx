@@ -6,7 +6,19 @@ import { TPageProps } from "../util/types";
 function Pollution(props: TPageProps) {
   const editArray = props.news.slice(1);
   const detailedNews = filterValidNews(editArray);
-  return <Layout news={detailedNews} />;
+  return (
+    <>
+      <Head>
+        <title>Pollution - Delhi</title>
+        <meta
+          name="description"
+          content="Know everything on Delhi Pollution - LatestNews"
+          key="desc"
+        />
+      </Head>
+      <Layout news={detailedNews} />
+    </>
+  );
 }
 
 export default Pollution;

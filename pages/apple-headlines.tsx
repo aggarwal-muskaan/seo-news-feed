@@ -5,7 +5,19 @@ import { TPageProps } from "../util/types";
 
 function AppleNews(props: TPageProps) {
   const detailedNews = filterValidNews(props.news);
-  return <Layout news={detailedNews} />;
+  return (
+    <>
+      <Head>
+        <title>Everything about Apple</title>
+        <meta
+          name="description"
+          content="Know latest insights of Apple - LatestNews"
+          key="desc"
+        />
+      </Head>
+      <Layout news={detailedNews} />
+    </>
+  );
 }
 
 export default AppleNews;
