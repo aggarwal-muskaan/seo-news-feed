@@ -42,5 +42,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     `${process.env.NEXT_PUBLIC_BASE_URL}/everything?q=${params.topic}&apiKey=${process.env.API_KEY}`
   );
   const data = await response.json();
+  if (data.status === "error") return { props: { news: [] } };
+
   return { props: { news: data.articles, topic: params.topic } };
 };

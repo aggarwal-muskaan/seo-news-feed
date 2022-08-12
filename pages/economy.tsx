@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Layout from "../components/Layout";
+import ErrorPage from "../components/ErrorPage";
 import { filterValidNews } from "../util/filterValidNews";
 import { TPageProps } from "../util/types";
 
@@ -15,7 +16,7 @@ function Economy(props: TPageProps) {
           key="desc"
         />
       </Head>
-      <Layout news={detailedNews} />
+      {props.news.length ? <Layout news={detailedNews} /> : <ErrorPage />}
     </>
   );
 }
@@ -27,5 +28,7 @@ export async function getStaticProps() {
     `${process.env.NEXT_PUBLIC_BASE_URL}/everything?q=economy&apiKey=${process.env.API_KEY}`
   );
   const data = await response.json();
+  if (data.status === "error") return { props: { news: [] } };
+
   return { props: { news: data.articles } };
 }
