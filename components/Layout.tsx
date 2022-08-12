@@ -44,6 +44,8 @@ function Layout(props: TLayoutProps) {
               w="100%"
               h="150px"
               py=".5rem"
+              objectFit="cover"
+              borderRadius="15px"
             />
             <Text cursor="pointer" color="blackAlpha.700" fontSize="14px">
               <Link href={item.url} passHref>
