@@ -28,7 +28,7 @@ function Layout(props: TLayoutProps) {
           lg: "repeat(auto-fill, minmax(400px,1fr))",
         }}
       >
-        {news.map((item, index: number) => (
+        {sortedNews.map((item, index: number) => (
           <Flex
             direction="column"
             maxH={{ base: "100%", lg: "380px" }}
