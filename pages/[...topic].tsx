@@ -44,5 +44,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const data = await response.json();
   if (data.status === "error") return { props: { news: [] } };
 
-  return { props: { news: data.articles, topic: params.topic } };
+  return {
+    props: { news: data.articles, topic: params.topic },
+    revalidate: 43200,
+  };
 };

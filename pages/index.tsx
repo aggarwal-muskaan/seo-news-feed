@@ -27,5 +27,5 @@ export async function getStaticProps() {
   );
   const data = await response.json();
   if (data.status === "error") return { props: { news: [] } };
-  return { props: { news: data.articles } };
+  return { props: { news: data.articles }, revalidate: 10800 };
 }
